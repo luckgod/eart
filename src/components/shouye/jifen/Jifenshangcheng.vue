@@ -27,7 +27,6 @@
     <div>
       <div class="duihua">
         <ul>
-<<<<<<< HEAD
           <router-link tag="li" class="kau" :to="{path:'/jfenduihuan'}" v-for="(item,index) in qb" :key="index">
          
             <img  class="jiimg" :src="item.goodsIcon" alt="">
@@ -35,44 +34,6 @@
             <p class="jinaf">{{item.goodsIntegralPrice}}积分</p>
           </router-link>
          
-=======
-          <router-link tag="li" class="kau" :to="{path:'/jfenduihuan'}">
-         
-            <img  class="jiimg" src="../../../assets/logo.png" alt="">
-            <p class="jiname">水果拼盘</p>
-            <p class="jinaf">100积分</p>
-          </router-link>
-          <router-link tag="li" class="kau" :to="{path:'/jfenduihuan'}">
-         
-            <img  class="jiimg" src="../../../assets/logo.png" alt="">
-            <p class="jiname">水果拼盘</p>
-            <p class="jinaf">100积分</p>
-          </router-link>
-          <router-link tag="li" class="kau" :to="{path:'/jfenduihuan'}">
-         
-            <img  class="jiimg" src="../../../assets/logo.png" alt="">
-            <p class="jiname">水果拼盘</p>
-            <p class="jinaf">100积分</p>
-          </router-link>
-          <router-link tag="li" class="kau" :to="{path:'/jfenduihuan'}">
-         
-            <img  class="jiimg" src="../../../assets/logo.png" alt="">
-            <p class="jiname">水果拼盘</p>
-            <p class="jinaf">100积分</p>
-          </router-link>
-          <router-link tag="li" class="kau" :to="{path:'/jfenduihuan'}">
-         
-            <img  class="jiimg" src="../../../assets/logo.png" alt="">
-            <p class="jiname">水果拼盘</p>
-            <p class="jinaf">100积分</p>
-          </router-link>
-          <router-link tag="li" class="kau" :to="{path:'/fenlei'}">
-         
-            <img  class="jiimg" src="../../../assets/logo.png" alt="">
-            <p class="jiname">水果拼盘</p>
-            <p class="jinaf">100积分</p>
-          </router-link>
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
                   
         </ul>
       </div>
@@ -85,7 +46,6 @@ export default {
       data () {
     return {
       msg: 'moban',
-<<<<<<< HEAD
       data:{
         pageNum:1,
         pageSize:5,
@@ -98,8 +58,6 @@ export default {
       },
       
       qb:'',
-=======
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
      
     }
   },
@@ -107,7 +65,6 @@ export default {
      fanhui(){
         this.$router.go(-1)
         
-<<<<<<< HEAD
      },
       weizhi(){
           console.log(this.data)
@@ -130,10 +87,6 @@ export default {
      
      this.weizhi()
   },
-=======
-     }
-  }
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
   
 }
 </script>

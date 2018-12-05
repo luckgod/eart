@@ -2,7 +2,6 @@
   <div>
       <div>
           <ul>
-<<<<<<< HEAD
               <li class="item" v-for="(item,index) in qb">
                   <ul class="itema">
                       <li class="fll itemb">
@@ -13,44 +12,6 @@
                   </ul>
               </li>
               
-=======
-              <li class="item" >
-                  <ul class="itema">
-                      <li class="fll itemb">
-                          <p class="iname " >租田套餐</p>
-                          <span  class="itime ">2018-04-28 17:00:04</span>
-                        </li>
-                      <li  class="flr"><span class="itimepro">-2880积分</span></li>
-                  </ul>
-              </li>
-              <li class="item" >
-                  <ul class="itema">
-                      <li class="fll itemb">
-                          <p class="iname " >生鲜订单</p>
-                          <span  class="itime ">2018-04-28 17:00:04</span>
-                        </li>
-                      <li  class="flr"><span class="itimepro" :class=" num > 0 ? 'yanse' : '' ">{{num}}积分</span></li>
-                  </ul>
-              </li>
-              <li class="item" >
-                  <ul class="itema">
-                      <li class="fll itemb">
-                          <p class="iname " >生鲜退款</p>
-                          <span  class="itime ">2018-04-28 17:00:04</span>
-                        </li>
-                      <li  class="flr"><span class="itimepro">-50积分</span></li>
-                  </ul>
-              </li>
-              <li class="item" >
-                  <ul class="itema">
-                      <li class="fll itemb">
-                          <p class="iname " >农田订单</p>
-                          <span  class="itime ">2018-04-28 17:00:04</span>
-                        </li>
-                      <li  class="flr"><span class="itimepro">-2880积分</span></li>
-                  </ul>
-              </li>
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
           </ul>
       </div>
       <div class="tip">
@@ -65,7 +26,6 @@ export default {
     return {
       msg: 'moban',
       num:50,
-<<<<<<< HEAD
       data:{
         pageNum:1,
         pageSize:5,
@@ -101,10 +61,6 @@ export default {
     
     
   },
-=======
-    }
-  }
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
   
 }
 </script>

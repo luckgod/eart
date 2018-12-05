@@ -18,7 +18,6 @@
         <div class="one_se_tip">
           附近门店
         </div>
-<<<<<<< HEAD
         <div class="one_se_wz" v-for="(item,index) in qb" :key="index">
           <ul>
             <li class="one_se_shu" >{{item.storeName}}</li>
@@ -26,20 +25,6 @@
           </ul>
         </div>
        
-=======
-        <div class="one_se_wz">
-          <ul>
-            <li class="one_se_shu ">水天城生鲜</li>
-            <li class="one_se_zuo"><span>前往选购</span><i class="iconfont icon-right big"></i></li>
-          </ul>
-        </div>
-        <div class="one_se_wz bor">
-          <ul>
-            <li class="one_se_shu ">水天城生鲜</li>
-            <li class="one_se_zuo"><span>前往选购</span><i class="iconfont icon-right big"></i></li>
-          </ul>
-        </div>
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
       </div>
       </div> 
   </div>
@@ -49,7 +34,6 @@ export default {
      name: 'Huoquweizhi',
       data () {
     return {
-<<<<<<< HEAD
       msg: 'moban',
       data:{
         pageNum:1,
@@ -84,11 +68,6 @@ export default {
     
     
   },
-=======
-      msg: 'moban'
-    }
-  }
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
   
 }
 </script>

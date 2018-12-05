@@ -99,8 +99,8 @@ function cryptData(data,act) {
     // }
     
     //默认数据
-    data.reqToken='2cdc8e4007d54b5683bfef37bedc7c7c';
-    data.reqUser='0000000018';
+    data.reqToken='ZRtrKvobEcWuPMoCmAeZUtCNzp7yaDr7';
+    data.reqUser='0000000011';
 
     let AesKey = generateMixed(16);
     data.reqChannel = reqChannel;

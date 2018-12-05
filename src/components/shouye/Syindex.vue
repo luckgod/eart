@@ -24,26 +24,16 @@
     
     <!-- 轮播 -->
   <mt-swipe :auto="4000" class="lunbo"  :show-indicators="true">
-<<<<<<< HEAD
     <mt-swipe-item class="lunboli" v-for="(item,index)  in res.banners"  :key='index'><img :src='item.operImage' alt="" ></mt-swipe-item>
-=======
-    <mt-swipe-item class="lunboli" v-for="(item,index)  in banners"  :key='index'><img :src='item.operImage' alt="" ></mt-swipe-item>
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
    
   </mt-swipe>
   <!-- 卡片 -->
   <div class="card">
     <div class="fll">
       <ul>
-<<<<<<< HEAD
         <li  class="card_hea" tag="li">
           <span> <span  @click="jumpbah">{{storeName}}</span>  <router-link class="iconfont icon-right "   to="Quanbumendian"  tag="i"></router-link></span>
         </li>
-=======
-        <router-link  to="Quanbumendian" class="card_hea" tag="li">
-          <span>{{storeName}}  <i class="iconfont icon-right "></i></span>
-        </router-link>
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
         <li class="card_se">
           <img src="../../assets/buluo.jpg" alt=""  @click="jumpba">
           <span  @click="jumpba" class='cspan'>{{evaluateStar}}分</span>
@@ -94,16 +84,12 @@
     </ul>
   </div>
 <!-- 运营位 -->
-<mt-swipe :auto="4000" class="lunbo_two"  :show-indicators="false">
-    <mt-swipe-item class="lunboli_two"><img src="../../assets/lunbosucia1.jpg" alt=""> <img src="../../assets/lunbosucia1.jpg" alt=""></mt-swipe-item>
+<mt-swipe :auto="4000" class="lunbo_two"  :show-indicators="false" v-if="yuny">
+    <mt-swipe-item class="lunboli_two"><img :src="yunyina" alt=""> <img :src="yunyinb" alt=""></mt-swipe-item>
     
   </mt-swipe>
 <!-- 秒杀 -->
-<<<<<<< HEAD
 <div class="miaosha" v-if="sms">
-=======
-<div class="miaosha">
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
   <div class="miaosha_hea"> 
     <ul>
       <li class="fll miaosha_hea_l" >
@@ -127,22 +113,14 @@
       <li class="slide-box-oli" v-for="(item,index) in ml" :key="index">
         <div ><img :src="item.goodsIcon" alt=""></div>
         <div  class="slide-box-na">{{item.goodsExplain}}</div>
-<<<<<<< HEAD
         <div class="slide-box-sho"><span class="fll">¥{{item.goodsActivityPrice=='Y'?item.goodsActivityPrice:item.goodsPrice}}</span><i class="iconfont icon-gouwuche flr"></i></div>
-=======
-        <div class="slide-box-sho"><span class="fll">¥{{item.goodsActivityPrice}}</span><i class="iconfont icon-gouwuche flr"></i></div>
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
       </li>
       
     </ul>
   </div>
 </div>
 <!-- 特价 -->
-<<<<<<< HEAD
 <div class="miaosha" v-if="stj">
-=======
-<div class="miaosha">
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
   <div class="miaosha_hea"> 
     <ul>
       <li class="fll tejia_hea_l">
@@ -157,50 +135,16 @@
   </div>
   <div class="miaosha_pro">
     <ul class="slide-box">
-<<<<<<< HEAD
       <li class="slide-box-oli" v-for="(item,index) in tj" :v-for="index">
         <div><img :src="item.goodsIcon" alt=""></div>
         <div  class="slide-box-na">{{item.goodsName}}</div>
         <div class="slide-box-sho"><span class="fll">¥{{item.goodsActivityPrice=='Y'?item.goodsActivityPrice:item.goodsPrice}}</span><i class="iconfont icon-gouwuche flr"></i></div>
       </li>
       
-=======
-      <li class="slide-box-oli">
-        <div><img src="../../assets/lunbosucia1.jpg" alt=""></div>
-        <div  class="slide-box-na">赣南高级脐橙2个</div>
-        <div class="slide-box-sho"><span class="fll">¥8.80</span><i class="iconfont icon-gouwuche flr"></i></div>
-      </li>
-       <li class="slide-box-oli">
-        <div><img src="../../assets/lunbosucia1.jpg" alt=""></div>
-        <div  class="slide-box-na">赣南高级脐橙2个</div>
-        <div class="slide-box-sho"><span class="fll">¥8.80</span><i class="iconfont icon-gouwuche flr"></i></div>
-      </li>
-       <li class="slide-box-oli">
-        <div><img src="../../assets/lunbosucia1.jpg" alt=""></div>
-        <div  class="slide-box-na">赣南高级脐橙2个</div>
-        <div class="slide-box-sho"><span class="fll">¥8.80</span><i class="iconfont icon-gouwuche flr"></i></div>
-      </li>
-       <li class="slide-box-oli">
-        <div><img src="../../assets/lunbosucia1.jpg" alt=""></div>
-        <div  class="slide-box-na">赣南高级脐橙2个</div>
-        <div class="slide-box-sho"><span class="fll">¥8.80</span><i class="iconfont icon-gouwuche flr"></i></div>
-      </li>
-       <li class="slide-box-oli">
-        <div><img src="../../assets/lunbosucia1.jpg" alt=""></div>
-        <div  class="slide-box-na">赣南高级脐橙2个</div>
-        <div class="slide-box-sho"><span class="fll">¥8.80</span><i class="iconfont icon-gouwuche flr"></i></div>
-      </li>
-       <li class="slide-box-oli">
-        <div><img src="../../assets/lunbosucia1.jpg" alt=""></div>
-        <div  class="slide-box-na">赣南高级脐橙2个</div>
-        <div class="slide-box-sho"><span class="fll">¥8.80</span><i class="iconfont icon-gouwuche flr"></i></div>
-      </li>
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
     </ul>
   </div>
 </div>
 <!-- 限时秒杀 -->
-<<<<<<< HEAD
 <div class="xianshimiaosha neiyinying"  v-if="szt">
   <img :src="ztbg" alt="" @click="jumpe">
   <div class="xianshi_dingwei">
@@ -212,28 +156,6 @@
         <div class="slide-box-sho"><span class="fll">¥{{item.goodsActivityPrice=='Y'?item.goodsActivityPrice:item.goodsPrice}}</span><i class="iconfont icon-gouwuche flr"></i></div>
       </li>
        
-=======
-<div class="xianshimiaosha neiyinying" >
-  <img src="../../assets/lunbosucia1.jpg" alt="" @click="jumpe">
-  <div class="xianshi_dingwei">
-    <div class="miaosha_pro">
-    <ul class="slide-box">
-      <li class="slide-box-oli">
-        <div><img src="../../assets/lunbosucia1.jpg" alt=""></div>
-        <div  class="slide-box-na">赣南高级脐橙2个</div>
-        <div class="slide-box-sho"><span class="fll">¥8.80</span><i class="iconfont icon-gouwuche flr"></i></div>
-      </li>
-       <li class="slide-box-oli">
-        <div><img src="../../assets/lunbosucia1.jpg" alt=""></div>
-        <div  class="slide-box-na">赣南高级脐橙2个</div>
-        <div class="slide-box-sho"><span class="fll">¥8.80</span><i class="iconfont icon-gouwuche flr"></i></div>
-      </li>
-       <li class="slide-box-oli">
-        <div><img src="../../assets/lunbosucia1.jpg" alt=""></div>
-        <div  class="slide-box-na">赣南高级脐橙2个</div>
-        <div class="slide-box-sho"><span class="fll">¥8.80</span><i class="iconfont icon-gouwuche flr"></i></div>
-      </li>
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
     
     </ul>
   </div>
@@ -268,13 +190,11 @@ export default {
       couponAmtb:'',
       banners:'',
       tpromoCode:"",
-<<<<<<< HEAD
       operCode:'',
+      yunyina:'',
+      yunyinb:'',
+      zimg:'',
       ztbg:'',
-=======
-      operParentCode:'',
-      
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
       day: 0, 
       hr: 0,
       min: 0,
@@ -282,12 +202,10 @@ export default {
       ml:'',
       zt:'',
       tj:"",
-<<<<<<< HEAD
       szt:true,
       stj:false,
       sms:false,
-=======
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
+      yuny:false,
     }
   },
   methods:{
@@ -301,7 +219,6 @@ export default {
     jumpa(){
       this.$router.push({path:'/shangpinsousu'})
     },
-<<<<<<< HEAD
      jumpbah(){
         this.$router.push({path:'/Shangjiaifo',query:{num:'tab-container1',storeCode:this.storeCode}})
      },  
@@ -310,14 +227,6 @@ export default {
     },
      jumpbc(){
       this.$router.push({path:'/Shangjiaifo',query:{num:'tab-container3',storeCode:this.storeCode}})
-=======
-   
-     jumpba(){
-      this.$router.push({path:'/Shangjiaifo',query:{num:'tab-container2'}})
-    },
-     jumpbc(){
-      this.$router.push({path:'/Shangjiaifo',query:{num:'tab-container3'}})
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
     },
     jumpc(){
       this.$router.push({path:'/miaoshashangpin'})
@@ -326,7 +235,7 @@ export default {
       this.$router.push({path:'/tejiashangpin'})
     },
     jumpe(){
-      this.$router.push({path:'/laingdanghuodong'})
+      this.$router.push({path:'/laingdanghuodong',query:{tu:this.zimg}})
     },
     jumpg(){
       this.$router.push({path:'/fenlei'})
@@ -334,12 +243,11 @@ export default {
      jumpf(){
       this.$router.push({path:'/jifenshangcheng'})
     },
-<<<<<<< HEAD
     // estateName 小区名称 积分
     fetchData(){
           this.dataApi.ajax('moveAppHome',{localPrecision:'120.231784',localDimension:'30.197081',},res=>{
             if(res.respState=='S'){
-               console.log(res)
+              // console.log(res)
              this.res=res
             
             
@@ -350,7 +258,16 @@ export default {
                   this.sms=true
               }
            
-
+              
+            
+                if(res.vegetRecommVos.length!==0){
+                   this.yunyina=res.vegetRecommVos[0].operImage
+                   if(res.vegetRecommVos.length==2){
+                     this.yunyinb=res.vegetRecommVos[1].operImage
+                   }
+                   
+                   this.yuny=true
+               }
             this.storeName=res.vegetStoreVo.storeName
             
           
@@ -358,7 +275,10 @@ export default {
             this.storeIcon=res.vegetStoreVo.storeIcon
             if(res.vegetStoreVo.vegetCouponVos.length!==0){
                 this.couponAmta=res.vegetStoreVo.vegetCouponVos[0].couponAmt
-                this.couponAmtb=res.vegetStoreVo.vegetCouponVos[1].couponAmt
+                   if(res.vegetStoreVo.vegetCouponVos.length==2){
+                   this.couponAmtb=res.vegetStoreVo.vegetCouponVos[1].couponAmt
+                   }
+                
             }
           
             this.banners=res.banners
@@ -371,79 +291,53 @@ export default {
               }
                if(res.vegetSpecialVos.length!==0){
                   this.ztbg=res.vegetSpecialVos[0].operBotImage
+                  this.zimg=res.vegetSpecialVos[0].operImage
               }
           
            
            
-            console.log(this.operCode)
+            //console.log(this.operCode)
            
-=======
-    fetchData(){
-          this.dataApi.ajax('moveAppHome',{localPrecision:'120.231784',localDimension:'30.197081',},res=>{
-            this.res=res
-            this.Mshijian=res.vegetMsPromotionVos[0].promoEndTime
-            this.storeCode=res.vegetStoreVo.storeCode
-            this.promoCode=res.vegetMsPromotionVos[0].promoCode
-            this.storeName=res.vegetStoreVo.storeName
-           
-            this.evaluateStar=res.vegetStoreVo.evaluateStar
-            this.storeIcon=res.vegetStoreVo.storeIcon
-            this.couponAmta=res.vegetStoreVo.vegetCouponVos[0].couponAmt
-            this.couponAmtb=res.vegetStoreVo.vegetCouponVos[1].couponAmt
-            this.banners=res.banners
-           
-            this.operParentCode=res.vegetRecommVos.operParentCode
-            this.tpromoCode=res.vegetTjPromotionVos[0].promoCode
-            console.log('1111')
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
             this.miaoshao()
             this.countdown()
             this.tejia()
             this.zhunti()
-<<<<<<< HEAD
             
             }
            
-=======
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
           })
         },
   
     miaoshao(){
          
         this.dataApi.ajax('promotionGoods',{storeCode:this.storeCode,promoCode:this.promoCode,},res=>{
-<<<<<<< HEAD
           if(res.respState=='S'){
             
-            // console.log(res)
-            this.ml=res.vos
-          }
-=======
             console.log(res)
             this.ml=res.vos
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
+            if(res.vos.length==0){
+              this.sms=false
+            }
+          }
            
            })
     },
      tejia(){
          
         this.dataApi.ajax('promotionGoods',{storeCode:this.storeCode,promoCode:this.tpromoCode,},res=>{
-<<<<<<< HEAD
            if(res.respState=='S'){
-               console.log(res)
+              // console.log(res)
             this.tj=res.vos
+            if(res.vos.length==0){
+              this.stj=false
+            }
           }
            
-=======
-            console.log(res)
-            this.tj=res.vos
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
            
            })
     },
       zhunti(){
          
-<<<<<<< HEAD
         this.dataApi.ajax('operateGoods',{storeCode:this.storeCode,operateCode:this.operCode},res=>{
           //  console.log(res)
            if(res.respState=='S'){
@@ -462,15 +356,6 @@ export default {
            })
     },
     countdown: function (a) {
-=======
-        this.dataApi.ajax('operateGoods',{storeCode:this.storeCode,operateCode:this.operParentCode,},res=>{
-            console.log(res)
-            this.zt=res.vos
-           
-           })
-    },
-    countdown: function () {
->>>>>>> cd32d3b470d2fe7eb757becad960d935fdd46f19
       const end = Date.parse(new Date(this.Mshijian))
       const now = Date.parse(new Date())
       const msec = end - now

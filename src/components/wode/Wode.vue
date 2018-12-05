@@ -6,18 +6,18 @@
           <router-link :to="{path:'/xiaoxizhongxin',query:{tab:'tab1'}}" class="xiaoxi" tag="div"></router-link>
           <div class="gerencar">
               <div class="warpa" @click="jumpc">
-                  <img class="utou" src="../../assets/logo.png" alt="">
+                  <img class="utou" :src="userImage" alt="">
                   <div  class="warpn">
-                      <p class="unam">小叮当</p>
-                        <p class="upho" >177****4562</p>
+                      <p class="unam">{{userNickName}}</p>
+                        <p class="upho" >{{userMobile}}</p>
                   </div>  
                 </div>
                 <div>
                     <div>
                             <ul class="huyu">
-                                <router-link class="huyuka" to='huiyuanka' tag="li"><p>¥0</p> <span>会员卡</span></router-link>
-                                <router-link class="huyukb" to='fukuanmaw' tag="li"><p>1</p> <span>优惠券</span></router-link>
-                                <router-link class="huyukc" to="duihuanjilu" tag="li"><p>62</p> <span>积分</span></router-link>
+                                <router-link class="huyuka" to='huiyuanka' tag="li"><p>1</p> <span>会员卡</span></router-link>
+                                <router-link class="huyukb" to='fukuanmaw' tag="li"><p>{{couponNumber}}</p> <span>优惠券</span></router-link>
+                                <router-link class="huyukc" to="jifenshangcheng" tag="li"><p>{{userIntegral}}</p> <span>积分</span></router-link>
                             </ul>
                     </div>
                   
@@ -65,7 +65,21 @@ export default {
   name: 'Wode',
       data () {
     return {
-      msg: 'moban'
+      msg: 'moban',
+       data:{
+        
+      },
+      userIntegral:'',
+      couponNumber:'',
+      messageNumber:'',
+      dfNumber:'',
+      dpsNumber:'',
+      dsNumber:'',
+      dpNumber:'',
+      userNickName:'',
+      userMobile:'',
+      userImage:'',
+      qb:'',
     }
   },
   methods:{
@@ -86,10 +100,45 @@ export default {
                             confirmButtonClass:'chanco'
                             });
       },
+       weizhi(){
+       
+        this.dataApi.ajax('moveAppUserView',this.data,res=>{
+                        console.log(res)
+                    if(res.respState=='S'){
+                          
+                        console.log(res)
+                           
+                            this.userIntegral=res.userIntegral
+                            this.couponNumber=res.couponNumber
+                            this.dfNumber=res.dfNumber
+                            this.dpsNumber=res.dpsNumber
+                            this.dsNumber=res.dsNumber
+                            this.dpNumber=res.dpNumber
+                            this.messageNumber=res.messageNumber
+                            this.userNickName=res.vegetUserVo.userNickName
+                            this.userMobile=res.vegetUserVo.userMobile
+                            this.userImage=res.vegetUserVo.userImage
+
+                        
+                         this.qb=res.vos
+                    }else{
+                         Toast(res.respMsg);
+                    }
+                    
+           
+                })
+    },
+    
       
       
 
-  }
+  },
+  mounted:function(){
+     
+     this.weizhi()
+    
+    
+  },
   
 }
 </script>

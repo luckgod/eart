@@ -18,30 +18,22 @@
         <mt-tab-container class="page-tabbar-tab-container" v-model="active" >
           
             <mt-tab-container-item id="tab1">
-            <div class="yijianhuifu">
+            <div class="yijianhuifu" v-for="(item,index) in qt" v-if="item.messageState=='R'?true:false">
                 <div class="yijianhuifua">
-                     <p>意见反馈回复</p>
-                    <p>提问： 我本来可以收4份蔬菜的，可是为什么却收 到了一份西蓝花和一份土豆？</p>
-                    <p>回复： 您的问题我们已经了解到了，会帮您解决的。</p>
-                    <p>2018-10-10 14:32:17</p>
-                </div>
-            </div>
-            <div class="yijianhuifu">
-                <div class="yijianhuifua">
-                     <p>配送清单提醒</p>
-                    <p>尊敬的地主：我们将于2018-10-10为您配送蔬菜，请您在2018-10-9 17:00:00之前收割所需蔬菜，逾期我们将自动为您科学配送。</p>
+                     <p>{{item.messageTitle}}</p>
+                    <p>{{item.message}}</p>
                    
-                    <p>2018-10-10 14:32:17</p>
+                    <p>{{item.creTime}}</p>
                 </div>
             </div>
+           
             </mt-tab-container-item>
             <mt-tab-container-item id="tab2">
-                   <div class="yijianhuifu">
+                   <div class="yijianhuifu" v-for="(item,index) in qb" :key="index" v-if="item.sysNewsState=='Y'?true:false">
                 <div class="yijianhuifua ">
-                     <p>关于租了个田登录注册的注意事项</p>
-                    <p>目前版本持续更新，为保证您的数据一致，请您务 必使用绑定手机号进行登录。</p>
-                   
-                    <p>2018-10-10 14:32:17</p>
+                     <p>{{item.sysNewsTitle}}</p>
+                    <p>{{item.sysNewsContent}}</p>                   
+                    <p>{{item.sysReleaseTime}}</p>
                 </div>
                 <div><i class="iconfont icon-right  ziti"></i></div>
             </div>
@@ -61,8 +53,63 @@ export default {
       msg: 'moban',
        active: 'tab1',
        selected:'tab1',
+        data:{
+        pageNum:1,
+        pageSize:5,
+        sort:'SYS_RELEASE_TIME',
+        desc:'DESC',
+        pageType:'A'
+      },
+      qb:'',
+      date:{
+        pageNum:1,
+        pageSize:5,
+        sort:'UPD_TIME',
+        desc:'DESC',
+        userCode:'0000000011'
+
+      },
+      qt:'',
     }
-  }
+  },
+  methods:{
+      weizhi(){
+       
+        this.dataApi.ajax('pageSysNews',this.data,res=>{
+        
+                    if(res.respState=='S'){
+                        // console.log(res)
+                        
+                        
+                         this.qb=res.vos
+                    }else{
+                         Toast(res.respMsg);
+                    }
+                    
+           
+                })
+    },
+    tongzhi(){
+        this.dataApi.ajax('pageUserMessage',this.date,res=>{
+        
+                    if(res.respState=='S'){
+                        console.log(res)
+                         this.qt=res.vos
+                    }else{
+                         Toast(res.respMsg);
+                    }
+                    
+           
+                })
+    }
+  },
+  mounted:function(){
+     
+     this.weizhi()
+     this.tongzhi()
+    
+    
+  },
   
 }
 </script>
