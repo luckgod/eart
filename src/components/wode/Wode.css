@@ -1,0 +1,184 @@
+.onese{
+    width: 100vw;
+    height: 3.3rem;
+    background: url(../../assets/img/16.png) no-repeat center scroll;
+    background-size:cover;
+    position: relative;
+}
+.shezhi{
+    width: 0.5rem;
+    height: 0.5rem;
+    background: url(../../assets/img/1.png) no-repeat center scroll;
+    background-size:cover;  
+    position: absolute;
+    left: 0.3rem;
+    top:0.2rem; 
+}
+.xiaoxi{
+    width: 0.5rem;
+    height: 0.5rem;
+    background: url(../../assets/img/2.png) no-repeat center scroll;
+    background-size:cover; 
+    position: absolute;
+    right: 0.3rem;
+    top: 0.2rem;  
+}
+.gerencar{
+    width: 92vw;
+    height:3.3rem;
+   
+    /* margin:0 auto;
+    margin-top: 1.18rem; */
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 1.18rem;
+    box-shadow:0 0.01rem 0.3rem #646462 ;
+}
+.warpa{
+    padding-left: 0.38rem;
+    padding-top: 0.22rem;
+    background: #ffffff;
+  overflow: hidden;
+  margin-bottom:-0.1rem; 
+}
+.warpn{
+   text-indent: 0.4rem;
+   line-height: 0.5rem; 
+}
+.utou{
+    float: left;
+    width: 1rem;
+    height:1rem ;
+    border-radius:0.5rem;
+}
+.unam{
+    font-size:0.32rem;
+}
+.upho{
+    font-size:0.28rem;
+}
+.huyu{
+  
+    display: flex;
+    justify-content: space-around;
+    background: #ffffff;
+    padding-top:0.6rem;
+    text-align: center;
+}
+.huyuka p{
+   
+    font-size:0.28rem;
+    font-weight:500;
+    margin-bottom: -0.3rem;
+}
+.huyukb p{
+    font-size:0.28rem;
+    font-weight:500;
+    margin-bottom: -0.3rem;
+}
+.huyukc p{
+    font-size:0.28rem;
+    font-weight:500;
+    margin-bottom: -0.3rem;
+}
+.huyuka span{
+  
+    
+    font-size:0.28rem;
+    color:rgba(153,153,153,1);
+}
+.huyukb span{
+    margin-top: -1.5rem;
+    font-size:0.28rem;
+    color:rgba(153,153,153,1);
+}
+.huyukc span{
+    margin-top: -1.5rem;
+    font-size:0.28rem;
+    color:rgba(153,153,153,1);
+}
+.twose{
+    width: 96vw;
+
+margin: 1.2rem auto 0;
+
+text-indent: 0.2rem;
+overflow: hidden;
+ 
+}
+.twose span:nth-child(1){
+    float: left;
+    font-size:0.3rem;
+    font-weight:600;
+    line-height: 1rem;
+}
+.twose i:nth-child(2){
+    float: right;
+    font-size:0.36rem; 
+    line-height: 1rem;
+    padding-right: 0.1rem;
+   
+}
+.twose span:nth-child(3){
+    float: right;
+    font-size:0.28rem;
+    line-height: 1rem;
+   
+}
+.shengxiandingdan{
+   
+    display: flex;
+    justify-content: space-around;
+   
+}
+
+.items img{
+    display: inline-block;
+    width:0.64rem;
+    height: 0.64rem;
+    padding-left: 0.02rem;
+  
+}
+.itemst img{
+    padding-left: 0.2rem;
+}
+
+.items p{
+    font-size: 0.24rem;
+   padding-bottom:0.3rem;
+   padding-left: 0.02rem; 
+}
+.tit{
+    font-size:0.3rem;
+    font-weight:600;
+    text-indent: 0.2rem;
+    line-height: 1rem;
+}
+.tita{
+width: 94vw;   
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+align-content: center;
+text-align: center;
+margin: 0.4rem auto 0.2rem;
+}
+.titb{
+    width: 1.5rem;
+    height: 1.8rem;
+}
+.titb img{
+    width: 0.88rem;
+    height: 0.88rem;
+}
+.teshu img{
+    width: 1.1rem;
+    height: 0.98rem;
+    margin-left: 0.26rem;
+}
+.titb p{
+    font-size: 0.24rem;
+    line-height: 0.38rem;
+}

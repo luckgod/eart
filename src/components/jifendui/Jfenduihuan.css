@@ -1,0 +1,201 @@
+.tit{
+    width: 100vw;
+    height: 0.78rem;
+    margin-top: 0.29rem;
+   /* border: 1px solid #0000; */
+    overflow: hidden;
+}
+.zitia{
+    float: left;
+    font-size: 0.42rem;
+    line-height: 0.78rem;
+    padding-left:0.2rem; 
+}
+.zitib{
+    float:right;
+    font-size: 0.42rem;
+    padding-right:0.2rem; 
+    line-height: 0.78rem;
+   
+}
+.zitib:hover{
+    color: #f5ab28;
+}
+/*  */
+.kimg{
+    width:100vw;
+    height:5.6rem;
+}
+.se{
+    text-indent: 0.32rem;
+}
+.proname{
+    font-size: 0.32rem;
+    line-height: 0.9rem;
+    font-weight:600; 
+   
+}
+
+.projia{
+    font-size: 0.24rem;
+    line-height: 0.33rem;
+    color:  #999999;
+}
+.projifen{
+    font-size: 0.32rem;
+    color: #FA302E;
+    font-weight:600; 
+    line-height: 0.9rem;
+}
+/*  */
+.sea p{
+    text-indent: 0.32rem;
+}
+.sea ul li{
+    margin-top: -0.12rem;
+} 
+.kimga{
+    width:100vw;
+}
+/*  */
+.footer{
+width: 100vw;
+height: 0.98rem;
+position:fixed;
+bottom: 0;
+background: #f5ab28;
+color: #ffffff;
+text-align: center;
+}
+.zuihou{
+    font-size:0.32rem ;
+    line-height:0.98rem ;
+}
+/* tanchuang */
+.warp{
+    width: 3rem;
+    height: 1.7rem;
+    padding: 0.39rem 0.83rem;
+    
+    
+}
+.tanc{
+    text-align: center;
+}
+.tanct{
+    line-height: 0.45rem;
+    font-size:0.32rem;
+    font-weight:500;
+}
+.maisu{
+    text-align: center;
+     
+}
+.maisua{
+    font-size: 0.24rem;
+    line-height: 0.4rem;
+    color: #333333;
+    
+}
+.btn{
+    margin-top: -0.32rem;
+}
+.quxiao{
+    color: #999999;
+    font-size:0.32rem;
+    font-weight:400;
+       
+}
+.que{
+    font-size:0.32rem;
+    font-weight:500;
+    color: #4A90E2;
+    padding-left:1.4rem; 
+     
+}
+/* tanchuang */
+  /* tanchaung */
+  .fenxiang{
+    width: 100vw;
+    height: 3.2rem;
+    background: #f4f4f4;
+    padding-top:0.44rem; 
+}
+.fenxiang_to {
+  width: 100vw;
+   
+}
+.fenxiang_to ul{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+ 
+}
+.fenxiang_to ul li{
+   
+}
+.fenxiang_miao{
+  display: block;
+font-size: 0.12rem;
+text-align: center;
+line-height: 0.6rem;
+
+}
+.fenxiang_bo{
+  font-size: 0.36rem;
+
+}
+.fenxiang_bac{
+
+  line-height: 0.8rem;
+  
+}
+.zitiaa{
+  font-size: 0.6rem;
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #20c755;
+  color: #f4f4f4;
+  text-align: center;
+  line-height: 1.2rem;
+  border-radius:0.6rem;  
+}
+.zitibb{
+  display: block;
+  font-size: 0.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #20BEA5;
+  color: #f4f4f4;
+  text-align: center;
+  line-height: 1.2rem;
+  border-radius:0.6rem;
+}
+.ziticc{
+  display: block;
+  font-size: 0.6rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  text-align: center;
+  background: #ffffff;
+  line-height: 1.2rem;
+  border-radius:0.6rem;
+}
+.fenxiangbtn{
+  width: 100vw;
+  background: #ffffff;
+  text-align: center;
+  
+}
+.fenxiangbtn span{
+  display: inline-block;
+  width: 6rem;
+  height: 0.86rem;
+ background: #f4f4f4;
+  line-height: 0.86rem;
+  font-size: 0.28rem;
+  font-weight:400;
+  margin-bottom:0.2rem; 
+}
