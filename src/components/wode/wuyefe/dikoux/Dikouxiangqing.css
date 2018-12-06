@@ -13,3 +13,12 @@ font-size: 0.28rem;
 color: #9B9B9B;
 line-height: 1.33rem;
 }
+.oli{
+    position: relative;
+}
+.dingwei{
+    position: absolute;
+    top: 0.42rem;
+    right: 0;
+    font-size: 0.3rem;
+}

@@ -221,7 +221,7 @@ export default {
     this.shangjia()
     this.pinngjia()
       
-     this._data.active=this.$route.query.num
+     this.active=this.$route.query.num
     
   },
   computed: {

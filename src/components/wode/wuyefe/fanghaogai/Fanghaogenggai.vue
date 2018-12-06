@@ -8,7 +8,7 @@
                        <mt-popup
                         v-model="popupVisiblea"
                         position="bottom">
-                       <mt-picker :slots="slotsa" @change="onValuesChangea" style='width:100vw;'></mt-picker>
+                       <mt-picker :slots="slotsa" @change="onValuesChangea" style='width:100vw;' value-key="estateName"></mt-picker>
                       </mt-popup>
                   </div>
                   <div class="itemc" @click.stop="popupVisiblea=!popupVisiblea">
@@ -36,11 +36,12 @@
           
       </div>
       <div class="btn">
-        <p >提交</p>
+        <p @click="weizhic">绑定</p>
     </div> 
   </div>
 </template>
 <script>
+import { Toast } from 'mint-ui';
 import { DatetimePicker } from 'mint-ui';
 import { Popup } from 'mint-ui';
 
@@ -50,7 +51,8 @@ export default {
       data () {
     return {
       msg: '1幢3单元102室',
-      msga: '名义花园',
+      msga:'',
+      code:'',
       popupVisible:false,
       popupVisiblea:false,
       slots: [
@@ -75,23 +77,87 @@ export default {
       slotsa: [
         {
           flex: 1,
-          values: ['名义花园', '宁一花园', '宁二花园', '宁四花园', '宁五花园', '宁六花园','宁五花园', '宁六花园'],
+          values: [],
           className: 'slot1',
           textAlign: 'center'
         }, 
 
       ],
+      datm:{
+        selectType:'APP',
+      },
+       datb:{
+        estateCode:'',
+      },
+      datc:{
+         roomCode:'0D6A18E0174247E1B1506D49BF21DE21', 
+      },
+      disabled:true
     }
   },
   methods: {
     onValuesChange(picker, values) {
         let a=picker.getValues().join(' ') 
         this.msg=a     
+        
+        
     },
     onValuesChangea(picker, values){
-       let a=picker.getValues().join(' ') 
-        this.msga=a  
-    }
+      if (values[0]!=undefined) {
+           this.msga=picker.getValues()[0].estateName;
+          var arr=picker.getValues();
+          this.datb.estateCode=arr[0].estateCode;
+         this. weizhia()
+      }
+      
+      
+     
+    },
+     weizhi(){
+       
+        this.dataApi.ajax('estateSelect',this.datm,res=>{
+          
+                    if(res.respState=='S'){
+                      
+                        this.slotsa[0].values=res.vos
+                    
+                    }
+                    
+           
+                })
+    },
+    weizhia(){
+       
+        this.dataApi.ajax('selectRoom',this.datb,res=>{
+                    // console.log(this.datb.estateCode)
+                    if(res.respState=='S'){
+                        console.log(res)
+                    }else{
+                         Toast(res.respMsg);
+                    }
+                    
+           
+                })
+    },
+    weizhic(){
+       
+        this.dataApi.ajax('bindingEstate',this.datc,res=>{
+                    // console.log(this.datb.estateCode)
+                    if(res.respState=='S'){
+                        console.log(res)
+                    }else{
+                         Toast(res.respMsg);
+                    }
+                    
+           
+                })
+    },
+  },
+   mounted:function(){
+     
+     this.weizhi()
+    
+    
   },
   
 }

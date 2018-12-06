@@ -163,10 +163,7 @@ let showMessage = function (res) {
               location.hash = '/login';
               return
         }
-        // vm.$message({
-        //     message: res.respMsg,
-        //     type: 'warning'
-        // });
+        Toast(res.respMsg);
     }else if (res.responseType > 0) {
         
         if (res.respcode==30006) {

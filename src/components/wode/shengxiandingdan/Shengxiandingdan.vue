@@ -30,33 +30,26 @@
         <mt-tab-container class="page-tabbar-tab-container" v-model="active" >
           
             <mt-tab-container-item id="tab1">
-                <div>
+                <div v-for="(item,index) in qb" :key="index">
                      <div class="daifukuan">
-                  <div  class="daifukuan_h">
+                    <div  class="daifukuan_h">
                       <ul>
                           <li class="daifukuan_tit">
                                <i class="iconfont icon-dianpu1"></i>
-                                <span>河马生鲜专营店</span>
+                                <span>{{item.storeName}}</span>
                                <i class="iconfont icon-right"></i>
-                               <p>待付款</p>
+                               <p>{{item.orderState|capitalize}}</p>
                           </li>
-                          <li  class="daifukuan_im">
+                          <li  class="daifukuan_im" >
                               <ul>
-                                  <li><img  class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
+                                  <li v-for="(val,index) in item.vegetShopOrderDetails"><img  class="daifukuan_ima" :src="val.goodsIcon" alt=""></li>
+                                 
                               </ul>
                           </li>
-                          <li class="daifukuan_jieshuan"><span>共6件商品 邮费¥20 合计：<em>¥69.80</em></span></li>
+                          <li class="daifukuan_jieshuan"><span>共{{item.orderGoodsNum}}件商品 邮费¥{{item.orderFreightAmt}}    合计：<em>¥{{item.orderRealeAmt}}</em></span></li>
                       </ul>
                   </div>
-                  <div class="btn_a">
+                  <div class="btn_a" v-if="item.orderState=='DF'">
                       <div>
                           <p>待付款</p>
                       </div>
@@ -64,67 +57,7 @@
                           <p @click="quxiaota">取消订单</p>
                       </div>
                   </div>
-              </div>
-
-                </div>
-<!-- // 222222 -->
-              <div>
-                     <div class="daifukuan">
-                  <div  class="daifukuan_h">
-                      <ul>
-                          <li class="daifukuan_tit">
-                               <i class="iconfont icon-dianpu1"></i>
-                                <span>河马生鲜专营店</span>
-                               <i class="iconfont icon-right"></i>
-                               <p>待发货</p>
-                          </li>
-                          <li  class="daifukuan_im">
-                              <ul>
-                                  <li><img  class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                              </ul>
-                          </li>
-                          <li class="daifukuan_jieshuan"><span>共6件商品 邮费¥20 合计：<em>¥69.80</em></span></li>
-                      </ul>
-                  </div>
-                  
-              </div>
-                 </div> 
-<!-- // -333   -->
-                <div>
-                    <div class="daifukuan">
-                  <div  class="daifukuan_h">
-                      <ul>
-                          <li class="daifukuan_tit">
-                               <i class="iconfont icon-dianpu1"></i>
-                                <span>河马生鲜专营店</span>
-                               <i class="iconfont icon-right"></i>
-                               <p>待收货</p>
-                          </li>
-                          <li  class="daifukuan_im">
-                              <ul>
-                                  <li><img  class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                              </ul>
-                          </li>
-                          <li class="daifukuan_jieshuan"><span>共6件商品 邮费¥20 合计：<em>¥69.80</em></span></li>
-                      </ul>
-                  </div>
-                  <div class="btn_a">
+                  <div class="btn_a" v-if="item.orderState=='DS'">
                       <div>
                           
                       </div>
@@ -132,36 +65,7 @@
                           <router-link to="Shenqingtuikuan" tag="p">退款</router-link>
                       </div>
                   </div>
-              </div>
-                </div>           
-<!-- // -444    -->
-             <div>
-                     <div class="daifukuan">
-                  <div  class="daifukuan_h">
-                      <ul>
-                          <li class="daifukuan_tit">
-                               <i class="iconfont icon-dianpu1"></i>
-                                <span>河马生鲜专营店</span>
-                               <i class="iconfont icon-right"></i>
-                               <p>待评价</p>
-                          </li>
-                          <li  class="daifukuan_im">
-                              <ul>
-                                  <li><img  class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                              </ul>
-                          </li>
-                          <li class="daifukuan_jieshuan"><span>共6件商品 邮费¥20 合计：<em>¥69.80</em></span></li>
-                      </ul>
-                  </div>
-                  <div class="btn_a">
+                   <div class="btn_a" v-if="item.orderState=='DP'">
                       <div>
                          <router-link to='Pingjia' tag="p">去评价</router-link>
                       </div>
@@ -169,36 +73,7 @@
                          
                       </div>
                   </div>
-              </div>    
-                  </div>     
-<!-- // -555                                 -->
-                <div>
-                     <div class="daifukuan">
-                  <div  class="daifukuan_h">
-                      <ul>
-                          <li class="daifukuan_tit">
-                               <i class="iconfont icon-dianpu1"></i>
-                                <span>河马生鲜专营店</span>
-                               <i class="iconfont icon-right"></i>
-                               <p class="yanse">已完成</p>
-                          </li>
-                          <li  class="daifukuan_im">
-                              <ul>
-                                  <li><img  class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                              </ul>
-                          </li>
-                          <li class="daifukuan_jieshuan"><span>共6件商品 邮费¥20 合计：<em>¥69545.80</em></span></li>
-                      </ul>
-                  </div>
-                  <div class="btn_a">
+                   <div class="btn_a" v-if="item.orderState=='YP'||item.orderState=='YQ'||item.orderState=='ZQ'||item.orderState=='YT'">
                       <div>
                         
                       </div>
@@ -206,190 +81,242 @@
                          <p>删除订单</p>
                       </div>
                   </div>
-              </div>    
+              </div>
+
+                
+<!-- // 222222 -->
+             
                   </div>
             </mt-tab-container-item>
 
             <mt-tab-container-item id="tab2">
-              <div class="daifukuan">
-                  <div  class="daifukuan_h">
-                      <ul>
-                          <li class="daifukuan_tit">
-                               <i class="iconfont icon-dianpu1"></i>
-                                <span>河马生鲜专营店</span>
-                               <i class="iconfont icon-right"></i>
-                               <p>待付款</p>
-                          </li>
-                          <li  class="daifukuan_im">
-                              <ul>
-                                  <li><img  class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                              </ul>
-                          </li>
-                          <li class="daifukuan_jieshuan"><span>共6件商品 邮费¥20 合计：<em>¥69.80</em></span></li>
-                      </ul>
-                  </div>
-                  <div class="btn_a">
-                      <div>
-                          <p>待付款</p>
-                      </div>
-                      <div>
-                            <p @click="quxiaota">取消订单</p>
-                      </div>
-                  </div>
-              </div>
-              <!-- sesesesesesesesesesesesesesesesesese -->
-               <div class="daifukuan">
-                  <div  class="daifukuan_h">
-                      <ul>
-                          <li class="daifukuan_tit">
-                               <i class="iconfont icon-dianpu1"></i>
-                                <span>河马生鲜专营店</span>
-                               <i class="iconfont icon-right"></i>
-                               <p>待付款</p>
-                          </li>
-                          <li  class="daifukuan_im">
-                              <ul>
-                                  <li><img  class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                              </ul>
-                          </li>
-                          <li class="daifukuan_jieshuan"><span>共6件商品 邮费¥20 合计：<em>¥69.80</em></span></li>
-                      </ul>
-                  </div>
-                  <div class="btn_a">
-                      <div>
-                          <p>待付款</p>
-                      </div>
-                      <div>
-                            <p @click="quxiaota">取消订单</p>
-                      </div>
-                  </div>
-              </div>
-            </mt-tab-container-item>
-
-             <mt-tab-container-item id="tab3">
-                 <div>
+             <div v-for="(item,index) in qb" :key="index" v-if="item.orderState=='DF'">
                      <div class="daifukuan">
-                  <div  class="daifukuan_h">
+                    <div  class="daifukuan_h">
                       <ul>
                           <li class="daifukuan_tit">
                                <i class="iconfont icon-dianpu1"></i>
-                                <span>河马生鲜专营店</span>
+                                <span>{{item.storeName}}</span>
                                <i class="iconfont icon-right"></i>
-                               <p>待发货</p>
+                               <p>{{item.orderState|capitalize}}</p>
                           </li>
-                          <li  class="daifukuan_im">
+                          <li  class="daifukuan_im" >
                               <ul>
-                                  <li><img  class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
+                                  <li v-for="(val,index) in item.vegetShopOrderDetails"><img  class="daifukuan_ima" :src="val.goodsIcon" alt=""></li>
+                                 
                               </ul>
                           </li>
-                          <li class="daifukuan_jieshuan"><span>共6件商品 邮费¥20 合计：<em>¥69.80</em></span></li>
+                          <li class="daifukuan_jieshuan"><span>共{{item.orderGoodsNum}}件商品 邮费¥{{item.orderFreightAmt}}    合计：<em>¥{{item.orderRealeAmt}}</em></span></li>
                       </ul>
                   </div>
-                  
-              </div>
-                 </div>
-            </mt-tab-container-item>
-
-            <mt-tab-container-item id="tab4">
-                <div>
-                    <div class="daifukuan">
-                  <div  class="daifukuan_h">
-                      <ul>
-                          <li class="daifukuan_tit">
-                               <i class="iconfont icon-dianpu1"></i>
-                                <span>河马生鲜专营店</span>
-                               <i class="iconfont icon-right"></i>
-                               <p>待收货</p>
-                          </li>
-                          <li  class="daifukuan_im">
-                              <ul>
-                                  <li><img  class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                              </ul>
-                          </li>
-                          <li class="daifukuan_jieshuan"><span>共6件商品 邮费¥20 合计：<em>¥69.80</em></span></li>
-                      </ul>
+                  <div class="btn_a" v-if="item.orderState=='DF'">
+                      <div>
+                          <p>待付款</p>
+                      </div>
+                      <div>
+                          <p @click="quxiaota">取消订单</p>
+                      </div>
                   </div>
-                  <div class="btn_a">
+                  <div class="btn_a" v-if="item.orderState=='DS'">
                       <div>
                           
                       </div>
                       <div >
-                          <router-link to='Daishouhuo' tag="p" >确定收货</router-link>
+                          <router-link to="Shenqingtuikuan" tag="p">退款</router-link>
                       </div>
                   </div>
-              </div>
-                </div>
-            </mt-tab-container-item>
-
-             <mt-tab-container-item id="tab5">
-                  <div>
-                     <div class="daifukuan">
-                  <div  class="daifukuan_h">
-                      <ul>
-                          <li class="daifukuan_tit">
-                               <i class="iconfont icon-dianpu1"></i>
-                                <span>河马生鲜专营店</span>
-                               <i class="iconfont icon-right"></i>
-                               <p>待评价</p>
-                          </li>
-                          <li  class="daifukuan_im">
-                              <ul>
-                                  <li><img  class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                                  <li><img class="daifukuan_ima" src="../../../assets/logo.png" alt=""></li>
-                              </ul>
-                          </li>
-                          <li class="daifukuan_jieshuan"><span>共6件商品 邮费¥20 合计：<em>¥69.80</em></span></li>
-                      </ul>
-                  </div>
-                  <div class="btn_a">
+                   <div class="btn_a" v-if="item.orderState=='DP'">
                       <div>
-                          <router-link to='Pingjia' tag="p">去评价</router-link>
+                         <router-link to='Pingjia' tag="p">去评价</router-link>
                       </div>
                       <div>
                          
                       </div>
                   </div>
-              </div>    
+                   <div class="btn_a" v-if="item.orderState=='YP'||item.orderState=='YQ'||item.orderState=='ZQ'||item.orderState=='YT'">
+                      <div>
+                        
+                      </div>
+                      <div>
+                         <p>删除订单</p>
+                      </div>
                   </div>
+              </div>
+
+              </div>
+              <!-- sesesesesesesesesesesesesesesesesese -->
+             
+            </mt-tab-container-item>
+
+             <mt-tab-container-item id="tab3">
+                  <div v-for="(item,index) in qb" :key="index" v-if="item.orderState=='DPS'">
+                     <div class="daifukuan">
+                    <div  class="daifukuan_h">
+                      <ul>
+                          <li class="daifukuan_tit">
+                               <i class="iconfont icon-dianpu1"></i>
+                                <span>{{item.storeName}}</span>
+                               <i class="iconfont icon-right"></i>
+                               <p>{{item.orderState|capitalize}}</p>
+                          </li>
+                          <li  class="daifukuan_im" >
+                              <ul>
+                                  <li v-for="(val,index) in item.vegetShopOrderDetails"><img  class="daifukuan_ima" :src="val.goodsIcon" alt=""></li>
+                                 
+                              </ul>
+                          </li>
+                          <li class="daifukuan_jieshuan"><span>共{{item.orderGoodsNum}}件商品 邮费¥{{item.orderFreightAmt}}    合计：<em>¥{{item.orderRealeAmt}}</em></span></li>
+                      </ul>
+                  </div>
+                  <div class="btn_a" v-if="item.orderState=='DF'">
+                      <div>
+                          <p>待付款</p>
+                      </div>
+                      <div>
+                          <p @click="quxiaota">取消订单</p>
+                      </div>
+                  </div>
+                  <div class="btn_a" v-if="item.orderState=='DS'">
+                      <div>
+                          
+                      </div>
+                      <div >
+                          <router-link to="Shenqingtuikuan" tag="p">退款</router-link>
+                      </div>
+                  </div>
+                   <div class="btn_a" v-if="item.orderState=='DP'">
+                      <div>
+                         <router-link to='Pingjia' tag="p">去评价</router-link>
+                      </div>
+                      <div>
+                         
+                      </div>
+                  </div>
+                   <div class="btn_a" v-if="item.orderState=='YP'||item.orderState=='YQ'||item.orderState=='ZQ'||item.orderState=='YT'">
+                      <div>
+                        
+                      </div>
+                      <div>
+                         <p>删除订单</p>
+                      </div>
+                  </div>
+              </div>
+
+              </div>
+            </mt-tab-container-item>
+
+            <mt-tab-container-item id="tab4">
+                <div v-for="(item,index) in qb" :key="index" v-if="item.orderState=='DS'">
+                     <div class="daifukuan">
+                    <div  class="daifukuan_h">
+                      <ul>
+                          <li class="daifukuan_tit">
+                               <i class="iconfont icon-dianpu1"></i>
+                                <span>{{item.storeName}}</span>
+                               <i class="iconfont icon-right"></i>
+                               <p>{{item.orderState|capitalize}}</p>
+                          </li>
+                          <li  class="daifukuan_im" >
+                              <ul>
+                                  <li v-for="(val,index) in item.vegetShopOrderDetails"><img  class="daifukuan_ima" :src="val.goodsIcon" alt=""></li>
+                                 
+                              </ul>
+                          </li>
+                          <li class="daifukuan_jieshuan"><span>共{{item.orderGoodsNum}}件商品 邮费¥{{item.orderFreightAmt}}    合计：<em>¥{{item.orderRealeAmt}}</em></span></li>
+                      </ul>
+                  </div>
+                  <div class="btn_a" v-if="item.orderState=='DF'">
+                      <div>
+                          <p>待付款</p>
+                      </div>
+                      <div>
+                          <p @click="quxiaota">取消订单</p>
+                      </div>
+                  </div>
+                  <div class="btn_a" v-if="item.orderState=='DS'">
+                      <div>
+                          
+                      </div>
+                      <div >
+                          <router-link to="Shenqingtuikuan" tag="p">退款</router-link>
+                      </div>
+                  </div>
+                   <div class="btn_a" v-if="item.orderState=='DP'">
+                      <div>
+                         <router-link to='Pingjia' tag="p">去评价</router-link>
+                      </div>
+                      <div>
+                         
+                      </div>
+                  </div>
+                   <div class="btn_a" v-if="item.orderState=='YP'||item.orderState=='YQ'||item.orderState=='ZQ'||item.orderState=='YT'">
+                      <div>
+                        
+                      </div>
+                      <div>
+                         <p>删除订单</p>
+                      </div>
+                  </div>
+              </div>
+
+                </div>
+            </mt-tab-container-item>
+
+             <mt-tab-container-item id="tab5">
+                     <div v-for="(item,index) in qb" :key="index" v-if="item.orderState=='DS'">
+                     <div class="daifukuan">
+                    <div  class="daifukuan_h">
+                      <ul>
+                          <li class="daifukuan_tit">
+                               <i class="iconfont icon-dianpu1"></i>
+                                <span>{{item.storeName}}</span>
+                               <i class="iconfont icon-right"></i>
+                               <p>{{item.orderState|capitalize}}</p>
+                          </li>
+                          <li  class="daifukuan_im" >
+                              <ul>
+                                  <li v-for="(val,index) in item.vegetShopOrderDetails"><img  class="daifukuan_ima" :src="val.goodsIcon" alt=""></li>
+                                 
+                              </ul>
+                          </li>
+                          <li class="daifukuan_jieshuan"><span>共{{item.orderGoodsNum}}件商品 邮费¥{{item.orderFreightAmt}}    合计：<em>¥{{item.orderRealeAmt}}</em></span></li>
+                      </ul>
+                  </div>
+                  <div class="btn_a" v-if="item.orderState=='DF'">
+                      <div>
+                          <p>待付款</p>
+                      </div>
+                      <div>
+                          <p @click="quxiaota">取消订单</p>
+                      </div>
+                  </div>
+                  <div class="btn_a" v-if="item.orderState=='DS'">
+                      <div>
+                          
+                      </div>
+                      <div >
+                          <router-link to="Shenqingtuikuan" tag="p">退款</router-link>
+                      </div>
+                  </div>
+                   <div class="btn_a" v-if="item.orderState=='DP'">
+                      <div>
+                         <router-link to='Pingjia' tag="p">去评价</router-link>
+                      </div>
+                      <div>
+                         
+                      </div>
+                  </div>
+                   <div class="btn_a" v-if="item.orderState=='YP'||item.orderState=='YQ'||item.orderState=='ZQ'||item.orderState=='YT'">
+                      <div>
+                        
+                      </div>
+                      <div>
+                         <p>删除订单</p>
+                      </div>
+                  </div>
+              </div>
+
+                </div>
             </mt-tab-container-item>
         </mt-tab-container>
          </div>
@@ -406,6 +333,16 @@ export default {
       msg: 'moban',
        active: 'tab2',
        selected:'tab1',
+       data:{
+        pageNum:1,
+        pageSize:10,
+        sort:'ORDER_TIME',
+        desc:'ASC',
+        orderState:'',
+        orderType:'DL'
+      },
+      qb:'',
+    
     }
   },
   methods:{
@@ -418,9 +355,64 @@ export default {
       },
       jumpa(){
           this.$router.go(-1)
-      }
+      },
+       weizhi(){
+           console.log('111')
+        this.dataApi.ajax('pageShopAppOrder',this.data,res=>{
+                 console.log('111')
+                    if(res.respState=='S'){
+                        console.log(res)
+                        
+                        
+                         this.qb=res.vos
 
+                    }else{
+                         Toast(res.respMsg);
+                    }
+                    
+           
+                })
+    },
+     
+
+  },
+  mounted:function(){
+     
+     this.weizhi()
+    
+    
+  },
+  filters: {
+  capitalize: function (value) {
+    if(value=='DF'){
+        return '待支付'
+    }
+     if(value=='DPS'){
+        return '待配送'
+    }
+     if(value=='DZT'){
+        return '待自提'
+    }
+     if(value=='DS'){
+        return '待收货/待自提'
+    }
+     if(value=='DP'){
+        return '待评价'
+    }
+     if(value=='ZQ'){
+        return '自动取消'
+    }
+     if(value=='YQ'){
+        return '用户已取消'
+    }
+    if(value=='YP'){
+        return '已评价'
+    }
+    if(value=='YT'){
+        return '已退款'
+    }
   }
+}
   
 }
 </script>

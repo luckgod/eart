@@ -1,7 +1,7 @@
 <template>
   <div>
         <div class="warp">
-            <div class="se">
+            <!-- <div class="se">
                 <p class="tit">一、什么是物业费？</p>
                 <p class="con"> 物业费是物业产权人、使用人委托物业管理单位对居住小区内的房屋公共建筑及其设备、公用设施、绿化、卫生、交通、治安和环境等项目进行日常维护、修缮、整治及提供其他与居民生活相关的服务所收取的费用。</p>
             </div>
@@ -15,7 +15,8 @@
                 <p class="con"> ⑦物业公司没有物价管理部门各项审批文件原件的情况，业主可拒交；</p>
                 <p class="con">  ⑧对于物业公司要求业主未收房之前就交纳物业费的行为，业主可坚决予以拒绝。</p>
                
-            </div>
+            </div> -->
+            <div style="font-size:0.3rem">{{qb}}</div>
         </div>
   </div>
 </template>
@@ -24,9 +25,38 @@ export default {
   name: 'Jiaonashuoming',
       data () {
     return {
-      msg: 'moban'
+      msg: 'moban',
+       data:{
+        dictCode:'DADI_PAYMENT_EXPLAN',
+        
+      },
+      qb:'',
     }
-  }
+  },
+   methods:{
+      weizhi(){
+       
+        this.dataApi.ajax('selectDict',this.data,res=>{
+          console.log('111')
+                    if(res.respState=='S'){
+                        console.log(res)
+                        
+                        
+                         this.qb=res.dictName
+                    }else{
+                         Toast(res.respMsg);
+                    }
+                    
+           
+                })
+    },
+  },
+  mounted:function(){
+     
+     this.weizhi()
+    
+    
+  },
   
 }
 </script>

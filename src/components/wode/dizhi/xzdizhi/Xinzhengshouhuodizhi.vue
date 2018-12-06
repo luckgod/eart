@@ -34,7 +34,7 @@
                       <li class="itema">
                           <span>设为默认地址</span>
                           <div class="dingwei">
-                         <input class="switch switch-anim" type="checkbox" checked>
+                              <input class="switch switch-anim" type="checkbox" checked>
                           </div>
                       </li>
                 </ul>
@@ -46,8 +46,8 @@
   </div>
 </template>
 <script>
-　import { Picker } from 'mint-ui';
-　　import myaddress from './address3.json'
+import { Picker } from 'mint-ui';
+import myaddress from './address3.json'
 import { Popup } from 'mint-ui';
 export default {
   name: 'Xinzhengshouhuodizhi',
@@ -58,7 +58,7 @@ export default {
     return {
         msg: true,
         　isShowAddress:false,
-          popupVisible:true,
+          popupVisible:false,
 　　　　　　myAddressSlots: [
 　　　　　　　　{
 　　　　　　　　　　flex: 1,
@@ -86,10 +86,10 @@ export default {
 　　　　　　　　　　textAlign: 'center'
 　　　　　　　　}
 　　　　　　],
-　　　　　　myAddressProvince:'',
-　　　　　　myAddressCity:'',
-　　　　　　myAddresscounty:'',
-　　　　  dizhi:'',
+　　　　myAddressProvince:'',
+　　　　myAddressCity:'',
+　　　　myAddresscounty:'',
+　　　　dizhi:'',
         phone:'',
         diqu:'',
         xiaoqu:'',
@@ -99,7 +99,11 @@ export default {
       
       },
       qb:'',
+       date:{
+      addressCode:'F423D4F13B054E6786BF7FB6795DD92C',
+      }
     }
+   
   },
   methods:{
       weizhi(){
@@ -107,7 +111,7 @@ export default {
         this.dataApi.ajax('selectTotalCity',this.data,res=>{
          
                     if(res.respState=='S'){
-                        console.log(res)
+                        // console.log(res)
                         
                         
                          this.qb=res.vos
@@ -136,16 +140,34 @@ export default {
               this.dizhi= values[0]+' '+ values[1]+' '+values[2]
 　　　　　　}
 　　　　},
+      bianjidizhi(){
+            this.dataApi.ajax('singleAddress',this.date,res=>{         
+                     if(res.respState=='S'){
+                         console.log(res)
+                         // this.qb=res.vos
+                     }else{
+                          Toast(res.respMsg);
+                     }
+                 })
+            // this.dataApi.ajax('editAddress',this.date,res=>{         
+            //         if(res.respState=='S'){
+            //             console.log(res)
+            //             // this.qb=res.vos
+            //         }else{
+            //              Toast(res.respMsg);
+            //         }
+            //     })
+      }
   },
   mounted:function(){
      
-     this.weizhi()
-    this.$nextTick(() => { //vue里面全部加载好了再执行的函数 （类似于setTimeout）
-　　　　　　this.myAddressSlots[0].defaultIndex = 0
-　　　　　　// 这里的值需要和 data里面 defaultIndex 的值不一样才能够初始化
-　　　　　　//因为我没有看过源码（我猜测是因为数据没有改变，不会触发更新）
-　　　　});
-    
+    //  this.weizhi()
+//     this.$nextTick(() => { //vue里面全部加载好了再执行的函数 （类似于setTimeout）
+// 　　　　　　this.myAddressSlots[0].defaultIndex = 0
+// 　　　　　　// 这里的值需要和 data里面 defaultIndex 的值不一样才能够初始化
+// 　　　　　　//因为我没有看过源码（我猜测是因为数据没有改变，不会触发更新）
+// 　　　　});
+    this.bianjidizhi()
   },
   
 }
