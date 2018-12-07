@@ -54,7 +54,7 @@
                           <p>待付款</p>
                       </div>
                       <div>
-                          <p @click="quxiaota">取消订单</p>
+                          <p @click="quxiaota(item.orderCode)" >取消订单</p>
                       </div>
                   </div>
                   <div class="btn_a" v-if="item.orderState=='DS'">
@@ -67,7 +67,7 @@
                   </div>
                    <div class="btn_a" v-if="item.orderState=='DP'">
                       <div>
-                         <router-link to='Pingjia' tag="p">去评价</router-link>
+                         <router-link to='Pingjia' tag="p"  :to='{path:"/Pingjia",query: {id:item.orderCode}}'>去评价</router-link>
                       </div>
                       <div>
                          
@@ -77,7 +77,7 @@
                       <div>
                         
                       </div>
-                      <div>
+                      <div  :code='item.orderCode' @click="dela(item.orderCode)">
                          <p>删除订单</p>
                       </div>
                   </div>
@@ -114,7 +114,7 @@
                           <p>待付款</p>
                       </div>
                       <div>
-                          <p @click="quxiaota">取消订单</p>
+                          <p @click="quxiaota(item.orderCode)">取消订单</p>
                       </div>
                   </div>
                   <div class="btn_a" v-if="item.orderState=='DS'">
@@ -127,7 +127,7 @@
                   </div>
                    <div class="btn_a" v-if="item.orderState=='DP'">
                       <div>
-                         <router-link to='Pingjia' tag="p">去评价</router-link>
+                         <router-link :to='{path:'/Pingjia',query: {id:item.orderCode}}'  tag="p">去评价</router-link>
                       </div>
                       <div>
                          
@@ -137,8 +137,8 @@
                       <div>
                         
                       </div>
-                      <div>
-                         <p>删除订单</p>
+                      <div :code='item.orderCode' @click="dela(item.orderCode)"> 
+                         <p >删除订单</p>
                       </div>
                   </div>
               </div>
@@ -173,7 +173,7 @@
                           <p>待付款</p>
                       </div>
                       <div>
-                          <p @click="quxiaota">取消订单</p>
+                          <p @click="quxiaota(item.orderCode)">取消订单</p>
                       </div>
                   </div>
                   <div class="btn_a" v-if="item.orderState=='DS'">
@@ -186,7 +186,7 @@
                   </div>
                    <div class="btn_a" v-if="item.orderState=='DP'">
                       <div>
-                         <router-link to='Pingjia' tag="p">去评价</router-link>
+                         <router-link :to='{path:'/Pingjia',query: {id:item.orderCode}}' tag="p">去评价</router-link>
                       </div>
                       <div>
                          
@@ -196,7 +196,7 @@
                       <div>
                         
                       </div>
-                      <div>
+                      <div :code='item.orderCode' @click="dela(item.orderCode)">
                          <p>删除订单</p>
                       </div>
                   </div>
@@ -230,7 +230,7 @@
                           <p>待付款</p>
                       </div>
                       <div>
-                          <p @click="quxiaota">取消订单</p>
+                          <p @click="quxiaota(item.orderCode)">取消订单</p>
                       </div>
                   </div>
                   <div class="btn_a" v-if="item.orderState=='DS'">
@@ -243,7 +243,7 @@
                   </div>
                    <div class="btn_a" v-if="item.orderState=='DP'">
                       <div>
-                         <router-link to='Pingjia' tag="p">去评价</router-link>
+                         <router-link :to='{path:'/Pingjia',query: {id:item.orderCode}}' tag="p">去评价</router-link>
                       </div>
                       <div>
                          
@@ -253,7 +253,7 @@
                       <div>
                         
                       </div>
-                      <div>
+                      <div :code='item.orderCode' @click="dela(item.orderCode)"> 
                          <p>删除订单</p>
                       </div>
                   </div>
@@ -263,7 +263,7 @@
             </mt-tab-container-item>
 
              <mt-tab-container-item id="tab5">
-                     <div v-for="(item,index) in qb" :key="index" v-if="item.orderState=='DS'">
+                     <div v-for="(item,index) in qb" :key="index" v-if="item.orderState=='DP'">
                      <div class="daifukuan">
                     <div  class="daifukuan_h">
                       <ul>
@@ -287,7 +287,7 @@
                           <p>待付款</p>
                       </div>
                       <div>
-                          <p @click="quxiaota">取消订单</p>
+                          <p @click="quxiaota(item.orderCode)">取消订单</p>
                       </div>
                   </div>
                   <div class="btn_a" v-if="item.orderState=='DS'">
@@ -300,7 +300,7 @@
                   </div>
                    <div class="btn_a" v-if="item.orderState=='DP'">
                       <div>
-                         <router-link to='Pingjia' tag="p">去评价</router-link>
+                         <router-link  :to='{path:"/Pingjia",query: {id:item.orderCode}}' tag="p">去评价</router-link>
                       </div>
                       <div>
                          
@@ -310,7 +310,7 @@
                       <div>
                         
                       </div>
-                      <div>
+                      <div :code='item.orderCode' @click="dela(item.orderCode)">
                          <p>删除订单</p>
                       </div>
                   </div>
@@ -325,6 +325,7 @@
   </div>
 </template>
 <script>
+import { Toast } from 'mint-ui';
 import { MessageBox } from 'mint-ui';
 export default {
   name: 'Shengxiandingdan',
@@ -342,22 +343,46 @@ export default {
         orderType:'DL'
       },
       qb:'',
+      code:'',
     
     }
   },
   methods:{
-      quxiaota(){
-          MessageBox({
-            title: '提醒',
-            message: '确认取消订单?',
-            showCancelButton: true
+      quxiaota(a){
+         // MessageBox({
+            // title: '提醒',
+            // message: '确认取消订单?',
+            // showCancelButton: true
+            // });
+            MessageBox.confirm('确定执行此操作?').then(action => {
+                    var data={
+                        orderCode:a,
+                        cancleType:'S',
+                        orderCancelReason:'',
+
+                        
+                    }
+                this.dataApi.ajax('cancelShopOrder',data,res=>{
+                 console.log('111')
+                    if(res.respState=='S'){
+                            Toast('取消订单成功');
+                            this. weizhi()
+                    }else{
+                         Toast(res.respMsg);
+                    }
+                    
+           
+                })
+
+            }).catch(function(reason) {
+                Toast('已取消操作');
             });
-      },
+                },
       jumpa(){
           this.$router.go(-1)
       },
        weizhi(){
-           console.log('111')
+          
         this.dataApi.ajax('pageShopAppOrder',this.data,res=>{
                  console.log('111')
                     if(res.respState=='S'){
@@ -365,6 +390,25 @@ export default {
                         
                         
                          this.qb=res.vos
+
+                    }else{
+                         Toast(res.respMsg);
+                    }
+                    
+           
+                })
+    },
+    dela(a){
+        var data={
+            orderCode:a,
+        }
+         this.dataApi.ajax('editShopOrder',data,res=>{
+                
+                    if(res.respState=='S'){
+                        console.log(res)
+                        
+                        this.weizhi()
+                       
 
                     }else{
                          Toast(res.respMsg);

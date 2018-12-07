@@ -247,7 +247,7 @@ export default {
     fetchData(){
           this.dataApi.ajax('moveAppHome',{localPrecision:'120.231784',localDimension:'30.197081',},res=>{
             if(res.respState=='S'){
-              // console.log(res)
+              console.log(res)
              this.res=res
             
             
@@ -309,21 +309,23 @@ export default {
         },
   
     miaoshao(){
-         
+         console.log(this.promoCode)
+          console.log(this.promoCode)
         this.dataApi.ajax('promotionGoods',{storeCode:this.storeCode,promoCode:this.promoCode,},res=>{
           if(res.respState=='S'){
             
-            console.log(res)
+           
             this.ml=res.vos
-            if(res.vos.length==0){
-              this.sms=false
-            }
+             console.log(res)
+            // if(res.vos.length==0){
+            //   this.sms=false
+            // }
           }
            
            })
     },
      tejia(){
-         
+        //  console.log(this.tpromoCode)
         this.dataApi.ajax('promotionGoods',{storeCode:this.storeCode,promoCode:this.tpromoCode,},res=>{
            if(res.respState=='S'){
               // console.log(res)

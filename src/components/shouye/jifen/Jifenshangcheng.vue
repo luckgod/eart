@@ -27,7 +27,7 @@
     <div>
       <div class="duihua">
         <ul>
-          <router-link tag="li" class="kau" :to="{path:'/jfenduihuan'}" v-for="(item,index) in qb" :key="index">
+          <router-link v-for="(item,index) in qb" :key="index" tag="li" class="kau" :to="{path:'/jfenduihuan',query:{id:item.goodsCode}}" >
          
             <img  class="jiimg" :src="item.goodsIcon" alt="">
             <p class="jiname">{{item.goodsName}}</p>

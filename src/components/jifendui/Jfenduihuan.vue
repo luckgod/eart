@@ -7,29 +7,28 @@
       <div>
     <div class="lunbo">
         <mt-swipe :auto="4000" style="width:100vw;height:5.6rem;">
-            <mt-swipe-item><img src="../../assets/logo.png" alt="" class="kimg"></mt-swipe-item>
-            <mt-swipe-item><img src="../../assets/logo.png" alt="" class="kimg"></mt-swipe-item>
-            <mt-swipe-item><img src="../../assets/logo.png" alt="" class="kimg"></mt-swipe-item>
+            <mt-swipe-item v-for="(item,index) in lunbo" :key="index"><img :src="item.imageAddress" alt="" class="kimg"></mt-swipe-item>
+          
+           
         </mt-swipe>
     </div>
     <div class="se">
-        <p class="proname">赣南高级脐橙2个</p>
-        <p class="projia">店铺价：¥98.00</p>
-        <p class="projifen">880积分</p>
+        <p class="proname">{{goodsName}}</p>
+        <p class="projia">店铺价：¥{{goodsPrice}}</p>
+        <p class="projifen">{{goodsIntegralPrice}}积分</p>
     </div>
     <div class="sea">
         <p  class="proname">商品详情</p>
         <ul>
-           <li> <img src="../../assets/logo.png" class="kimg" alt=""></li>
-           <li> <img src="../../assets/logo.png" class="kimg" alt=""></li>
-           <li> <img src="../../assets/logo.png" class="kimg" alt=""></li>
-            <li> <img src="../../assets/logo.png" class="kimg" alt=""></li>
-            <li> <img src="../../assets/logo.png" class="kimg" alt=""></li>
-           <li> <img src="../../assets/logo.png" class="kimg" alt=""></li>
+           <li v-for="(item,index) in xingqingtu" :key="index"> <img :src="item.imageAddress" class="kimg" alt=""></li>
+          
         </ul>
     </div>
       </div>
-      <div class="footer" @click="tanchaun">
+       <div class="footera" v-if="goodsIntegralStock==0?true:false ">
+          <p class="zuihoua">已售罄</p>
+      </div>
+      <div class="footer" @click="tanchaun" v-if="goodsIntegralStock!==0?true:false">
           <p class="zuihou" >兑换</p>
       </div>
       <mt-popup
@@ -47,10 +46,10 @@
             </div>
             <div class="btn">
                 <span class="quxiao" @click="qux">取消</span>
-                <router-link class="que" to='duihuanjilu' tag="span">确定</router-link>
+                <span class="que"  tag="span" @click="queding">确定</span>
 
             </div>
-           
+
 
            
         </div>
@@ -83,12 +82,53 @@ export default {
       msg: 'moban',
       popupVisible:false,
        popupVisibla:false,
+       lunbo:'',
+       xingqingtu:'',
+       goodsName:'',
+        goodsPrice:'',
+        goodsIntegralPrice:'',
+        goodsIntegralStock:'',
     }
   },
   methods:{
       tanchaun(){
         //   this.$router.push({path:'/shangpinsousu'})
         this.popupVisible=true
+      },
+      queding(){
+         // to='duihuanjilu'
+       
+           var data={
+               orderType:'DG',
+               distType:'ZT',
+               payType:'GF',
+               isIntegral:'Y',
+               storeCode:'S0000000001',
+                vos:{
+                    goodsCode:this.$route.query.id,
+                    goodsIsAsyn:'G',
+                    goodsBuyNum:'1',
+                },
+
+
+
+           }
+        this.dataApi.ajax('addShopOrder',data,res=>{
+                    if(res.respState=='S'){
+                       console.log(res)
+                         this.$router.push('duihuanjilu')
+                    // this.goodsName= res.goodsName
+                    // this.goodsPrice= res.goodsPrice
+                    // this.goodsIntegralPrice= res.goodsIntegralPrice
+                    // this.goodsIntegralStock= res.goodsIntegralStock
+                    
+                    //     this.lunbo=res.broadImages
+                    //     this.xingqingtu=res.detailImages
+                    //     this.qb=res.vos
+                    }else{
+                         Toast(res.respMsg);
+                    }
+                })
       },
       qux(){
           this.popupVisible=false
@@ -102,8 +142,32 @@ export default {
       },
       jumpa(){
            this.$router.go(-1)
-      }
-  }
+      },
+       weizhi(){
+           var data={
+               goodsCode:this.$route.query.id,
+           }
+        this.dataApi.ajax('singleShopGoods',data,res=>{
+                    if(res.respState=='S'){
+                       
+                    this.goodsName= res.goodsName
+                    this.goodsPrice= res.goodsPrice
+                    this.goodsIntegralPrice= res.goodsIntegralPrice
+                    this.goodsIntegralStock= res.goodsIntegralStock
+                    
+                        this.lunbo=res.broadImages
+                        this.xingqingtu=res.detailImages
+                         this.qb=res.vos
+                    }else{
+                         Toast(res.respMsg);
+                    }
+                })
+    },
+  },
+  mounted:function(){
+     this.weizhi()
+  },
+  
   
 }
 </script>

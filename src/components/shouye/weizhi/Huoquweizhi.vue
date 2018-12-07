@@ -46,28 +46,19 @@ export default {
     }
   },
   methods:{
-      weizhi(){
-       
+    weizhi(){
         this.dataApi.ajax('pageStore',this.data,res=>{
-          console.log('111')
                     if(res.respState=='S'){
                         console.log(res)
-                        
-                        
                          this.qb=res.vos
                     }else{
                          Toast(res.respMsg);
                     }
-                    
-           
                 })
     },
   },
   mounted:function(){
-     
      this.weizhi()
-    
-    
   },
   
 }

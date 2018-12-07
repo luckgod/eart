@@ -47,6 +47,7 @@ import Pingjia from '../components/wode/shengxiandingdan/daipingjia/pingjia/Ping
 import Shangpinseach from '../components/shouye/sousu/shangpinseach/Shangpinseach.vue'
 import Tianjiabeizhun from '../components/shopcar/querendingdan/tianjiabeizhu/Tianjiabeizhu.vue'
 import Fukuanyouhuijuan from '../components/shopcar/querendingdan/fukuanyouhuijuan/Fukuanyouhuijuan.vue'
+import Bangzhuxingqing from '../components/wode/bangzhu/bangzhuxingqing/Bangzhuxingqing.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -178,6 +179,10 @@ export default new Router({
     {
       path:'/yijianfankui',
       component:Yijianfankui
+    },
+    {
+      path:'/Bangzhuxingqing',
+      component:Bangzhuxingqing
     },
     {
       path:'/xiaoxizhongxin',

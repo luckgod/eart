@@ -71,6 +71,19 @@ text-align: center;
     font-size:0.32rem ;
     line-height:0.98rem ;
 }
+.footera{
+    width: 100vw;
+    height: 0.98rem;
+    position:fixed;
+    bottom: 0;
+    background: #cccccc;
+    color: #ffffff;
+    text-align: center;
+    }
+    .zuihoua{
+        font-size:0.32rem ;
+        line-height:0.98rem ;
+    }
 /* tanchuang */
 .warp{
     width: 3rem;

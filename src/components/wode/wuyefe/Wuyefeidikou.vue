@@ -143,7 +143,7 @@ export default {
     },
     weizhi(){
        
-        this.dataApi.ajax('userPayment',this.date,res=>{
+        this.dataApi.ajax('userWuYe',this.date,res=>{
                 // console.log('111')
                 // console.log(this.date.payYear)
                     if(res.respState=='S'){

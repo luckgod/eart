@@ -147,18 +147,21 @@ let showMessage = function (res) {
         //     message: res.respmsg,
         //     type: 'warning'
         // });
+        Toast(res.respmsg);
         location.hash = '/login';
     } else if (res.responseType >= 600 && res.code < 700) {
         // vm.$message({
         //     message: res.respmsg,
         //     type: 'warning'
         // });
+        Toast(res.respmsg);
     } else if (res.respState =='F') {
         if(res.respCode == 'TK-INVALID'){
             //  vm.$message({
             //         message: '请重新登录',
             //         type: 'warning'
             //     });
+            Toast('请重新登录');
               localStorage.removeItem('permission')
               location.hash = '/login';
               return
@@ -172,18 +175,20 @@ let showMessage = function (res) {
             //         message: '请重新登录',
             //         type: 'warning'
             //     });
+            Toast('请重新登录');
               return
         }
         // vm.$message({
         //     message: res.respmsg,
         //     type: 'warning'
         // });
-        
+        Toast('res.respmsg');
     } else if (res.responseType < 0) {
         // vm.$message({
         //     message: '系统繁忙: ' + res.respmsg,
         //     type: 'warning'
         // });
+        Toast('系统繁忙: ' + res.respmsg);
     }
 }
 
